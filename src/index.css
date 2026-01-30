@@ -1,0 +1,131 @@
+@import "tailwindcss";
+@import "@fontsource/roboto/100.css";
+@import "@fontsource/roboto/300.css";
+@import "@fontsource/roboto/400.css";
+@import "@fontsource/roboto/500.css";
+@import "@fontsource/roboto/700.css";
+@import "@fontsource/roboto/900.css";
+@import "@fontsource/roboto-mono/100.css";
+@import "@fontsource/roboto-mono/300.css";
+@import "@fontsource/roboto-mono/400.css";
+@import "@fontsource/roboto-mono/500.css";
+@import "@fontsource/roboto-mono/700.css";
+
+@layer base {
+  body {
+    background-color: var(--color-primary-bg);
+    color: var(--color-dark-12);
+    font-family: var(--font-roboto);
+    -webkit-font-smoothing: antialiased;
+    ::selection {
+      background-color: var(--color-brown-60);
+      color: var(--color-primary-bg);
+    }
+  }
+}
+.dark body {
+  background-color: var(--color-dark-10);
+  color: #ffffff;
+  ::selection {
+    background-color: var(--color-primary-bg);
+    color: var(--color-brown-60);
+  }
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  /* FONTS */
+  --font-roboto: "Roboto", sans-serif;
+  --font-mono: "Roboto Mono", monospace;
+
+  /* DARK BG-TEXT */
+  --color-dark-primary-bg: #0f0f0f;
+  --color-dark-primary-text: #ffffff;
+  --color-dark-accent: #fff6ec;
+
+  /* LIGHT BG-TEXT */
+  --color-primary-bg: #efefef;
+  --color-primary-text: var(--color-dark-primary-text);
+  --color-light-accent: #fff6ec;
+
+  --color-secondary: #ff5722;
+
+  --scroll-bar: #ae9b8460;
+
+  /* DARK DEGREES */
+  --color-dark-10: #0f0f0f;
+  /* -- BORDER LIGHT */
+  --color-dark-12: #1f1f1f;
+  /* -- BORDER DARK */
+  --color-dark-15: #262626;
+  --color-dark-20: #333333;
+  --color-dark-30: #4d4d4d;
+
+  --color-gray-40: #676665;
+  --color-gray-50: #81807e;
+  --color-gray-70: #b3b3b2;
+  --color-gray-80: #cccccc;
+  --color-very-dark-gray: #404040;
+
+  --color-brown-40: #53432f;
+  --color-brown-50: #796349;
+  --color-brown-60: #ae9b84;
+  --color-brown-70: #c2b4a3;
+  --color-brown-80: #d6cdc2;
+  --color-brown-90: #f0e9e1;
+  --color-brown-100: #fff6ec;
+
+  --color-green: #8af265;
+  --color-green-dark: #152011;
+
+  --breakpoint-my-media: 1430px;
+}
+
+@layer utilities {
+  .font-roboto {
+    font-family: var(--font-roboto);
+  }
+  .font-robotmono {
+    font-family: var(--font-mono);
+  }
+}
+/* start - for CategoriesBarSection */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation-name: scroll;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+/* end - for CategoriesBarSection */
+
+/* SCROLL AREA */
+.scroll-area {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scroll-bar) transparent;
+}
+.scroll-area::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scroll-area::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scroll-area::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-bar);
+  border-radius: 999px;
+}
