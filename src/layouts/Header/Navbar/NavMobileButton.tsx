@@ -5,11 +5,16 @@ export type Props = {
 const NavMobileButton = ({ setMenuOpen }: Props) => {
   return (
     <>
-      <button onClick={() => setMenuOpen(true)}>
+      <button
+        type="button"
+        onClick={() => setMenuOpen(true)}
+        aria-label="Open Menu"
+        title="Open Menu"
+      >
         <img
           src="/assets/icons/general/bars.svg"
           className="p-[10px] flex justify-center items-center w-14 h-14 z-120 rounded-[10px] bg-brown-70 hover:bg-brown-80 cursor-pointer"
-          alt="bars"
+          alt="Menu"
         />
       </button>
     </>

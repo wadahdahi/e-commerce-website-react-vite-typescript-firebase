@@ -34,15 +34,15 @@ export function MainButton({
     : "";
 
   const asCartCheckoutButton = cartCheckoutButton
-    ? "bg-brown-70 text-white dark:bg-brown-60 hover:dark:bg-amber-300 hover:text-dark-primary-bg hover:border border-very-dark-gray"
+    ? "bg-brown-70 text-white dark:bg-brown-60 hover:dark:bg-amber-300 hover:text-dark-primary-bg hover:border-2 border-very-dark-gray"
     : "";
 
   const asShopNowButton = shopNowButton
-    ? "bg-brown-80 dark:bg-dark-10 hover:bg-brown-70 hover:text-dark-primary-bg hover:border border-very-dark-gray"
+    ? "bg-brown-80 dark:bg-dark-10 hover:bg-brown-70 hover:text-dark-primary-bg hover:border-2 border-very-dark-gray"
     : "";
 
   const hasBorderClass = hasBorder
-    ? "border border-very-dark-gray border-dashed hover:border-0"
+    ? "border-2 border-very-dark-gray border-dashed hover:border-0"
     : "border-0";
   const backgroundClass = hasDarkBack
     ? "dark:bg-dark-12 dark:text-white"

@@ -67,7 +67,7 @@ const CheckoutPage: React.FC = () => {
                 <input
                   type="text"
                   placeholder="John"
-                  className="w-full px-4 py-3 rounded-xl border dark:border-dark-15 dark:bg-dark-10 focus:ring-2 focus:ring-secondary outline-none transition-all"
+                  className="w-full px-4 py-3 rounded-xl border-2 dark:border-dark-15 dark:bg-dark-10 focus:ring-2 focus:ring-secondary outline-none transition-all"
                 />
               </div>
               <div className="space-y-2">
@@ -77,7 +77,7 @@ const CheckoutPage: React.FC = () => {
                 <input
                   type="text"
                   placeholder="Doe"
-                  className="w-full px-4 py-3 rounded-xl border dark:border-dark-15 dark:bg-dark-10 focus:ring-2 focus:ring-secondary outline-none transition-all"
+                  className="w-full px-4 py-3 rounded-xl border-2 dark:border-dark-15 dark:bg-dark-10 focus:ring-2 focus:ring-secondary outline-none transition-all"
                 />
               </div>
               <div className="md:col-span-2 space-y-2">
@@ -87,7 +87,7 @@ const CheckoutPage: React.FC = () => {
                 <input
                   type="email"
                   placeholder="john@example.com"
-                  className="w-full px-4 py-3 rounded-xl border dark:border-dark-15 dark:bg-dark-10 focus:ring-2 focus:ring-secondary outline-none transition-all"
+                  className="w-full px-4 py-3 rounded-xl border-2 dark:border-dark-15 dark:bg-dark-10 focus:ring-2 focus:ring-secondary outline-none transition-all"
                 />
               </div>
               <div className="md:col-span-2 space-y-2">
@@ -97,7 +97,7 @@ const CheckoutPage: React.FC = () => {
                 <input
                   type="text"
                   placeholder="123 Luxury Ave"
-                  className="w-full px-4 py-3 rounded-xl border dark:border-dark-15 dark:bg-dark-10 focus:ring-2 focus:ring-secondary outline-none transition-all"
+                  className="w-full px-4 py-3 rounded-xl border-2 dark:border-dark-15 dark:bg-dark-10 focus:ring-2 focus:ring-secondary outline-none transition-all"
                 />
               </div>
               <div className="space-y-2">
@@ -107,7 +107,7 @@ const CheckoutPage: React.FC = () => {
                 <input
                   type="text"
                   placeholder="Milan"
-                  className="w-full px-4 py-3 rounded-xl border dark:border-dark-15 dark:bg-dark-10 focus:ring-2 focus:ring-secondary outline-none transition-all"
+                  className="w-full px-4 py-3 rounded-xl border-2 dark:border-dark-15 dark:bg-dark-10 focus:ring-2 focus:ring-secondary outline-none transition-all"
                 />
               </div>
               <div className="space-y-2">
@@ -117,7 +117,7 @@ const CheckoutPage: React.FC = () => {
                 <input
                   type="text"
                   placeholder="20121"
-                  className="w-full px-4 py-3 rounded-xl border dark:border-dark-15 dark:bg-dark-10 focus:ring-2 focus:ring-secondary outline-none transition-all"
+                  className="w-full px-4 py-3 rounded-xl border-2 dark:border-dark-15 dark:bg-dark-10 focus:ring-2 focus:ring-secondary outline-none transition-all"
                 />
               </div>
             </div>
@@ -267,7 +267,7 @@ const CheckoutPage: React.FC = () => {
 
         {/* Right Column: Order Summary */}
         <div className="lg:col-span-4 lg:sticky lg:top-24 h-fit">
-          <div className="bg-white dark:bg-dark-12 p-8 rounded-3xl border dark:border-dark-15 shadow-lg">
+          <div className="bg-white dark:bg-dark-12 p-8 rounded-3xl border-2 dark:border-dark-15 shadow-lg">
             <h2 className="text-2xl font-bold mb-6">Order Summary</h2>
 
             <div className="space-y-4 mb-6 max-h-80 overflow-y-auto pr-2 custom-scrollbar">
@@ -295,7 +295,7 @@ const CheckoutPage: React.FC = () => {
               ))}
             </div>
 
-            <div className="pt-6 border-t dark:border-dark-15 space-y-4">
+            <div className="pt-6 border-t-2 dark:border-dark-15 space-y-4">
               <div className="flex justify-between text-dark-60 dark:text-gray-400">
                 <span>Subtotal</span>
                 <span className="font-semibold text-dark-12 dark:text-white">

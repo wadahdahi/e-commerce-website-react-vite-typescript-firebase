@@ -143,18 +143,18 @@ export default function UsersPage() {
   return (
     <div className="flex flex-col gap-8 animate-in fade-in duration-700">
       <div className="flex flex-col gap-4">
-        <div className="flex justify-between items-center bg-white dark:bg-dark-15 p-6 rounded-2xl border-2 border-dashed border-dark-15">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-white dark:bg-dark-15 p-4 sm:p-6 rounded-2xl border-2 border-dashed border-dark-15 gap-4">
           <div className="flex flex-col gap-1">
-            <h1 className="text-3xl font-bold font-roboto tracking-tight text-dark-12 dark:text-white border-l-4 border-brown-80 pl-4">
+            <h1 className="text-2xl sm:text-3xl font-bold font-roboto tracking-tight text-dark-12 dark:text-white border-l-4 border-brown-80 pl-4">
               Users Management
             </h1>
-            <p className="text-gray-500 dark:text-gray-400 text-sm font-mono ml-5">
+            <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm font-mono ml-5">
               Admin controls for community management.
             </p>
           </div>
           <button
             onClick={() => setIsAdding(!isAdding)}
-            className="px-6 py-3 bg-brown-60 text-white rounded-xl font-bold hover:bg-brown-80 transition-all flex items-center gap-2"
+            className="w-full sm:w-auto px-6 py-3 bg-brown-60 text-white rounded-xl font-bold hover:bg-brown-80 transition-all flex items-center justify-center gap-2 text-sm"
           >
             <UIcon
               icon={ICONS.ACTIONS.ADD}
@@ -176,14 +176,14 @@ export default function UsersPage() {
             placeholder="Full Name"
             value={newUser.name}
             onChange={(e) => setNewUser({ ...newUser, name: e.target.value })}
-            className="px-4 py-2 border dark:bg-dark-15 dark:border-white/10 dark:text-white rounded-lg outline-none focus:border-brown-60"
+            className="px-4 py-2 border-2 dark:bg-dark-15 dark:border-white/10 dark:text-white rounded-lg outline-none focus:border-brown-60"
           />
           <input
             type="email"
             placeholder="Email"
             value={newUser.email}
             onChange={(e) => setNewUser({ ...newUser, email: e.target.value })}
-            className="px-4 py-2 border dark:bg-dark-15 dark:border-white/10 dark:text-white rounded-lg outline-none focus:border-brown-60"
+            className="px-4 py-2 border-2 dark:bg-dark-15 dark:border-white/10 dark:text-white rounded-lg outline-none focus:border-brown-60"
           />
           <input
             type="password"
@@ -192,7 +192,7 @@ export default function UsersPage() {
             onChange={(e) =>
               setNewUser({ ...newUser, password: e.target.value })
             }
-            className="px-4 py-2 border dark:bg-dark-15 dark:border-white/10 dark:text-white rounded-lg outline-none focus:border-brown-60"
+            className="px-4 py-2 border-2 dark:bg-dark-15 dark:border-white/10 dark:text-white rounded-lg outline-none focus:border-brown-60"
           />
           <div className="flex gap-2">
             <select
@@ -248,27 +248,27 @@ export default function UsersPage() {
           placeholder="Filter users..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full px-4 py-3 bg-white dark:bg-dark-15 rounded-xl border border-dashed border-dark-15 dark:text-white font-mono text-sm focus:border-brown-60 outline-none transition-all"
+          className="w-full px-4 py-3 bg-white dark:bg-dark-15 rounded-xl border-2 border-dashed border-dark-15 dark:text-white font-mono text-sm focus:border-brown-60 outline-none transition-all"
         />
       </div>
 
       {/* USERS TABLE */}
       <div className="bg-white dark:bg-dark-15 rounded-2xl border-2 border-dashed border-dark-15 overflow-hidden shadow-sm">
-        <div className="overflow-x-auto">
-          <table className="w-full text-left font-mono text-sm">
-            <thead className="bg-gray-50 dark:bg-dark-10 border-b border-dashed border-dark-15">
+        <div className="w-full">
+          <table className="w-full text-left font-mono text-[10px] sm:text-sm">
+            <thead className="bg-gray-50 dark:bg-dark-10 border-b-2 border-dashed border-dark-15">
               <tr>
-                <th className="px-6 py-4 font-bold text-dark-10 dark:text-white/60 uppercase">
-                  User Identity
+                <th className="px-2 sm:px-6 py-4 font-bold text-dark-10 dark:text-white/60 uppercase">
+                  Identity
                 </th>
-                <th className="px-6 py-4 font-bold text-dark-10 dark:text-white/60 uppercase">
-                  Privilege
+                <th className="hidden sm:table-cell px-6 py-4 font-bold text-dark-10 dark:text-white/60 uppercase">
+                  Role
                 </th>
-                <th className="px-6 py-4 font-bold text-dark-10 dark:text-white/60 uppercase">
-                  Account Access
+                <th className="px-2 sm:px-6 py-4 font-bold text-dark-10 dark:text-white/60 uppercase">
+                  Access
                 </th>
-                <th className="px-6 py-4 font-bold text-dark-10 dark:text-white/60 uppercase text-right">
-                  Operations
+                <th className="px-2 sm:px-6 py-4 font-bold text-dark-10 dark:text-white/60 uppercase text-right">
+                  Actions
                 </th>
               </tr>
             </thead>
@@ -278,17 +278,17 @@ export default function UsersPage() {
                   key={user.id}
                   className="hover:bg-gray-50/50 dark:hover:bg-white/5 transition-colors group"
                 >
-                  <td className="px-6 py-4">
-                    <div className="flex flex-col">
-                      <span className="font-bold text-dark-12 dark:text-white uppercase">
+                  <td className="px-2 sm:px-6 py-3">
+                    <div className="flex flex-col max-w-[80px] sm:max-w-none">
+                      <span className="font-bold text-dark-12 dark:text-white uppercase truncate">
                         {user.name || user.displayName || "Unknown"}
                       </span>
-                      <span className="text-xs text-gray-500">
+                      <span className="text-[9px] sm:text-xs text-gray-500 truncate">
                         {user.email}
                       </span>
                     </div>
                   </td>
-                  <td className="px-6 py-4">
+                  <td className="hidden sm:table-cell px-6 py-3">
                     <span
                       className={`px-2 py-1 rounded-md text-[10px] font-bold uppercase ${
                         user.role === "admin"
@@ -299,23 +299,23 @@ export default function UsersPage() {
                       {user.role}
                     </span>
                   </td>
-                  <td className="px-6 py-4">
+                  <td className="px-2 sm:px-6 py-3">
                     {user.isBanned ? (
-                      <span className="text-red-500 font-bold uppercase text-xs flex items-center gap-1">
+                      <span className="text-red-500 font-bold uppercase text-[9px] sm:text-xs">
                         ⛔ Banned
                       </span>
                     ) : (
-                      <span className="text-green-500 font-bold uppercase text-xs flex items-center gap-1">
+                      <span className="text-green-500 font-bold uppercase text-[9px] sm:text-xs">
                         ✅ Enabled
                       </span>
                     )}
                   </td>
-                  <td className="px-6 py-4 text-right">
-                    <div className="flex justify-end gap-2 transition-all">
+                  <td className="px-2 sm:px-6 py-3 text-right">
+                    <div className="flex justify-end gap-1 sm:gap-2 transition-all">
                       <button
                         onClick={() => sendEmail(user.email)}
                         title="Email User"
-                        className="p-2 bg-blue-100/80 dark:bg-blue-900/40 text-blue-600 dark:text-blue-300 rounded-lg hover:bg-blue-200 transition-all font-bold text-[10px]"
+                        className="p-1 sm:p-2 bg-blue-100/80 dark:bg-blue-900/40 text-blue-600 dark:text-blue-300 rounded-lg hover:bg-blue-200 transition-all font-bold text-[8px] sm:text-[10px]"
                       >
                         MAIL
                       </button>
@@ -323,23 +323,19 @@ export default function UsersPage() {
                         <>
                           <button
                             onClick={() => toggleBan(user.id, !!user.isBanned)}
-                            title={
-                              user.isBanned ? "Pardon User" : "Restrict User"
-                            }
-                            className={`p-2 rounded-lg transition-all font-bold text-[10px] ${
+                            className={`p-1 sm:p-2 rounded-lg transition-all font-bold text-[8px] sm:text-[10px] ${
                               user.isBanned
                                 ? "bg-green-100 text-green-700 hover:bg-green-200"
                                 : "bg-orange-100 text-orange-700 hover:bg-orange-200"
                             }`}
                           >
-                            {user.isBanned ? "ENABLE" : "BAN"}
+                            {user.isBanned ? "PARDON" : "BAN"}
                           </button>
                           <button
                             onClick={() => deleteUser(user.id)}
-                            title="Purge User"
-                            className="p-2 bg-red-100 text-red-600 rounded-lg hover:bg-red-200 transition-all font-bold text-[10px]"
+                            className="p-1 sm:p-2 bg-red-100 text-red-600 rounded-lg hover:bg-red-200 transition-all font-bold text-[8px] sm:text-[10px]"
                           >
-                            DELETE
+                            DEL
                           </button>
                         </>
                       )}

@@ -36,10 +36,7 @@ export default function Fashionjourney() {
 
   return (
     <div className="relative mx-auto max-w-[1596px] w-full rounded-xl outline-2 outline-dashed outline-dark.15 font-roboto mt-8 mb-30 sm:mb-20 ">
-      <div
-        className="relative overflow-hidden w-full h-[221px] sm:h-[213px] lg:h-[273px] flex items-start justify-start
-                      border-b-2 border-dashed border-dark.15"
-      >
+      <div className="relative overflow-hidden border-y-2 border-dashed border-dark-15">
         <div className="flex flex-col justify-start h-full p-4 sm:p-10 lg:p-12">
           <h1 className="font-medium text-2xl sm:text-4xl lg:text-5xl mb-2 sm:mb-4 lg:mb-6">
             Navigating the StyleLoom Fashion Journey.

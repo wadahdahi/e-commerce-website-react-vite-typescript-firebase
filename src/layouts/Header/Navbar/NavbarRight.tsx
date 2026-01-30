@@ -22,7 +22,7 @@ export default function NavbarRight({ setMenuOpen }: Props) {
   return (
     <nav className="w-fit flex flex-row justify-between items-center">
       <div
-        className="2xl:flex lg:flex md:flex hidden justify-start items-center
+        className="hidden lg:flex justify-start items-center
       w-fit"
       >
         <div className=" flex justify-start items-center gap-[14px]">
@@ -75,6 +75,7 @@ export default function NavbarRight({ setMenuOpen }: Props) {
           >
             Contact
           </NavLink>
+          {/* DROPDOWN */}
         </div>
       </div>
       {/* MOBILE MENU BUTTON */}

@@ -15,7 +15,8 @@ function getBorderClasses(
   colsLg = 3,
   colsSm = 2,
 ) {
-  let classes = "border-2 dark:border-[var(--color-dark-15)] border-[var(--color-dark-12)]   border-dashed";
+  let classes =
+    "border-2 dark:border-[var(--color-dark-15)] border-[var(--color-dark-12)]   border-dashed";
   if (index >= length - 3) classes += " lg:!border-b-0";
   if (index >= length - 2) classes += " sm:!border-b-0";
   if (index === 0 || index % colsLg === 0)
@@ -47,8 +48,12 @@ export default function TrendsSection({
   return (
     <section className="flex flex-col mb-[50px] xl:mb-[80px] 2xl:mb-[100px] border-[var(--color-dark-12)] dark:border-[var(--color-dark-15)] border-2 border-dashed rounded-2xl">
       <div className="2xl:p-20 xl:p-15 py-7.5 px-5 border-[var(--color-dark-12)] dark:border-[var(--color-dark-15)] border-b-2 border-dashed">
-        <h2 className="2xl:text-5xl text-[28px] xl:text-[38px] font-medium 2xl:mb-7.5 xl:mb-6 mb-5 uppercase">{heading}</h2>
-        <p className="text-[var(--color-gray-40)] text-sm 2xl:text-lg xl:text-base">{description}</p>
+        <h2 className="2xl:text-5xl text-[28px] xl:text-[38px] font-medium 2xl:mb-7.5 xl:mb-6 mb-5 uppercase">
+          {heading}
+        </h2>
+        <p className="text-[var(--color-gray-40)] text-sm 2xl:text-lg xl:text-base">
+          {description}
+        </p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">

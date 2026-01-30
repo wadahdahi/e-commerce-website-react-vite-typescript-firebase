@@ -296,14 +296,17 @@ export default function ProductsSection({
     const productsToRender = passedProducts || displayedHomeProducts;
 
     return (
-      <div className="w-full overflow-x-auto scroll-area border-b border-gray-100 dark:border-dark-15">
-        <div className="flex flex-col min-w-[800px] lg:min-w-full">
+      <div className="w-full overflow-hidden border-b-2 border-dashed border-gray-100 dark:border-dark-15">
+        <div className="flex flex-col w-full">
           {/* Table Header */}
-          <div className="flex items-center h-12 w-full bg-brown-80 dark:bg-dark-10 border-t border-dashed border-gray-200 dark:border-dark-15 px-4 font-mono text-sm font-bold text-dark-15/60 dark:text-gray-100 uppercase">
-            <div className="flex-1">Product</div>
-            <div className="w-1/6 text-start">Category</div>
-            <div className="w-1/6 text-start">Fit</div>
-            <div className="w-1/6 text-right">Price</div>
+          <div className="flex items-center h-10 w-full bg-brown-80 dark:bg-dark-10 border-t-2 border-dashed border-gray-200 dark:border-dark-15 px-2 sm:px-4 font-mono text-[10px] sm:text-sm font-bold text-dark-15/60 dark:text-gray-100 uppercase">
+            <div className="w-8 sm:w-10 shrink-0"></div> {/* Checkbox space */}
+            <div className="w-8 sm:w-10 shrink-0 mx-2"></div>{" "}
+            {/* Image space */}
+            <div className="flex-1 min-w-0 pr-2">Product</div>
+            <div className="w-20 sm:w-1/6 text-start truncate">Category</div>
+            <div className="hidden sm:block w-1/6 text-start">Fit</div>
+            <div className="w-16 sm:w-1/6 text-right">Price</div>
           </div>
 
           {productsToRender.map((product) => {
@@ -316,10 +319,10 @@ export default function ProductsSection({
             return (
               <div
                 key={product.id}
-                className={`group relative flex items-center h-[60px] w-full border-t border-dashed border-dark-15/40 dark:border-white/20 hover:bg-brown-70/20 dark:hover:bg-brown-70/10 px-4 font-mono text-sm transition-colors ${pendingDeleteClass}`}
+                className={`group relative flex items-center h-12 sm:h-[60px] w-full border-t-2 border-dashed border-dark-15/40 dark:border-white/20 hover:bg-brown-70/20 dark:hover:bg-brown-70/10 px-2 sm:px-4 font-mono text-[11px] sm:text-sm transition-colors ${pendingDeleteClass}`}
               >
                 <div
-                  className="mr-4 w-4 flex items-center justify-center"
+                  className="w-8 sm:w-10 flex items-center justify-center shrink-0"
                   onClick={(e) => e.stopPropagation()}
                 >
                   <input
@@ -329,12 +332,12 @@ export default function ProductsSection({
                       e.stopPropagation();
                       dispatch(toggleProductSelection(product.id));
                     }}
-                    className="w-4 h-4 cursor-pointer accent-brown-60 rounded border-gray-300"
+                    className="w-3.5 h-3.5 sm:w-4 sm:h-4 cursor-pointer accent-brown-60 rounded border-gray-300"
                     aria-label={`Select ${product.ProductName}`}
                   />
                 </div>
 
-                <div className="relative mr-4 h-[40px] w-[40px]">
+                <div className="relative mx-2 h-8 w-8 sm:h-10 sm:w-10 shrink-0">
                   <img
                     src={product.ProductImage}
                     alt={product.ProductName}
@@ -346,45 +349,22 @@ export default function ProductsSection({
                   )}
                 </div>
 
-                <div className="flex-1 overflow-hidden">
-                  <div className="w-fit">
-                    <Link
-                      to={`/products/${product.id}`}
-                      onMouseEnter={(e) => {
-                        setHoveredProductId(product.id);
-                        setMousePos({ x: e.clientX, y: e.clientY });
-                      }}
-                      onMouseLeave={() => setHoveredProductId(null)}
-                      className={`hover:underline font-bold text-dark-12 dark:text-white block truncate ${isDeleteHovered && isSelected ? "pointer-events-none" : ""}`}
-                    >
-                      {product.ProductName}
-                    </Link>
-                  </div>
-
-                  {hoveredProductId === product.id && !isDeleteHovered && (
-                    <div
-                      className="fixed z-99999 pointer-events-none transition-all duration-75 hidden lg:block"
-                      style={{
-                        left:
-                          mousePos.x + window.innerWidth * 0.45 >
-                          window.innerWidth
-                            ? `${mousePos.x - window.innerWidth * 0.45}px`
-                            : `${mousePos.x}px`,
-                        top: `${Math.max(20, Math.min(mousePos.y, window.innerHeight - 520))}px`,
-                      }}
-                    >
-                      <ProductMiniPreview product={product} />
-                    </div>
-                  )}
+                <div className="flex-1 min-w-0 overflow-hidden pr-2">
+                  <Link
+                    to={`/products/${product.id}`}
+                    className={`hover:underline font-bold text-dark-12 dark:text-white block truncate ${isDeleteHovered && isSelected ? "pointer-events-none" : ""}`}
+                  >
+                    {product.ProductName}
+                  </Link>
                 </div>
 
-                <div className="w-1/6 text-start text-gray-500 dark:text-gray-400">
+                <div className="w-20 sm:w-1/6 text-start text-gray-500 dark:text-gray-400 truncate">
                   {product.category}
                 </div>
-                <div className="w-1/6 text-start text-gray-500 dark:text-gray-400">
+                <div className="hidden sm:block w-1/6 text-start text-gray-500 dark:text-gray-400 truncate">
                   {product.Fitvalue}
                 </div>
-                <div className="w-1/6 text-right font-medium text-dark-12 dark:text-gray-200">
+                <div className="w-16 sm:w-1/6 text-right font-bold text-dark-12 dark:text-gray-200 shrink-0">
                   {product.Pricevalue}
                 </div>
               </div>

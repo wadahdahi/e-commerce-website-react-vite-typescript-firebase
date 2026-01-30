@@ -20,9 +20,7 @@ export default function Footer() {
   return (
     <footer
       className="
-        border-y border-dashed border-dark-15
-        lg:border-y-[1.5px]
-        2xl:border-y-2
+        border-y-2 border-dashed border-dark-15
       "
     >
       <CategoriesBarSection categories={categories} speed={25} />
@@ -65,9 +63,7 @@ export default function Footer() {
           flex flex-col gap-[30px]
           lg:flex-row lg:justify-between lg:items-center
           lg:gap-[50px] 2xl:gap-20
-          border-y border-dashed border-dark-15
-          lg:border-y-[1.5px]
-          2xl:border-y-2
+          border-y-2 border-dashed border-dark-15
         "
         >
           <div className="flex flex-col gap-5 lg:gap-6 2xl:gap-[30px]">
@@ -175,7 +171,7 @@ export default function Footer() {
             <Link
               to=""
               className="
-              pr-2.5 border-r border-dark-15
+              pr-2.5 border-r-2 border-dark-15
               font-mono text-sm lg:text-base 2xl:text-xl
               leading-relaxed text-gray-40
             "

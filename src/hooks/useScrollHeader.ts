@@ -1,4 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+
+interface UseScrollHeaderOptions {
+  threshold?: number;
+  isDisabled?: boolean;
+}
 
 interface UseScrollHeaderReturn {
   isVisible: boolean;
@@ -7,34 +12,40 @@ interface UseScrollHeaderReturn {
 }
 
 export const useScrollHeader = (
-  threshold: number = 100
+  options: UseScrollHeaderOptions = {}
 ): UseScrollHeaderReturn => {
+  const { threshold = 100, isDisabled = false } = options;
   const [isVisible, setIsVisible] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+
+      // UPDATE POSITION ALWAYS TO KEEP REFERENCE FRESH
+      const prevScrollY = lastScrollY.current;
+      lastScrollY.current = currentScrollY;
+
+      // SKIP VISIBILITY LOGIC IF DISABLED
+      if (isDisabled) return;
 
       setIsScrolled(currentScrollY > 50);
 
       if (currentScrollY < threshold) {
         setIsVisible(true);
       } else {
-        if (currentScrollY < lastScrollY) {
+        if (currentScrollY < prevScrollY) {
           setIsVisible(true);
-        } else if (currentScrollY > lastScrollY) {
+        } else if (currentScrollY > prevScrollY) {
           setIsVisible(false);
         }
       }
-
-      setLastScrollY(currentScrollY);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY, threshold]);
+  }, [threshold, isDisabled]);
 
   return { isVisible, setIsVisible, isScrolled };
 };

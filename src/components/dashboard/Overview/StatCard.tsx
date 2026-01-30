@@ -27,10 +27,10 @@ export const StatCard = ({
     : animatedValue.toLocaleString();
 
   return (
-    <div className="bg-brown-80/40 dark:bg-dark-15 p-6 rounded-2xl border-2 border-dashed border-dark-15 flex flex-col gap-4 group hover:bg-brown-80/50 dark:hover:bg-dark-20 transition-all shadow-sm dark:shadow-none">
+    <div className="bg-brown-80/40 dark:bg-dark-15 p-4 sm:p-6 rounded-2xl border-2 border-dashed border-dark-15 flex flex-col gap-3 sm:gap-4 group hover:bg-brown-80/50 dark:hover:bg-dark-20 transition-all shadow-sm dark:shadow-none">
       <div className="flex justify-between items-start">
-        <div className="p-3 rounded-xl bg-brown-70 dark:bg-brown-80/20 group-hover:scale-110 transition-transform">
-          <UIcon icon={icon} className="w-6 h-6" />
+        <div className="p-2 sm:p-3 rounded-xl bg-brown-70 dark:bg-brown-80/20 group-hover:scale-110 transition-transform">
+          <UIcon icon={icon} className="w-5 h-5 sm:w-6 sm:h-6" />
         </div>
         <div className="flex items-center gap-1 text-[10px] font-mono text-green-600 dark:text-green-500 bg-green-500/16 px-2 py-0.5 rounded-full">
           <UIcon
@@ -41,10 +41,10 @@ export const StatCard = ({
         </div>
       </div>
       <div className="flex flex-col">
-        <span className="text-dark-10 dark:text-gray-400 text-[10px] lg:text-xs font-mono uppercase tracking-widest leading-none mb-1">
+        <span className="text-dark-10 dark:text-gray-400 text-[9px] sm:text-[10px] lg:text-xs font-mono uppercase tracking-widest leading-none mb-1">
           {label}
         </span>
-        <span className="text-2xl font-bold text-dark-12 dark:text-white tracking-tight font-mono">
+        <span className="text-xl sm:text-2xl font-bold text-dark-12 dark:text-white tracking-tight font-mono">
           {formattedValue}
         </span>
       </div>

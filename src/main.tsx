@@ -84,8 +84,8 @@ const router = createBrowserRouter([
         element: <SetupAdmin />,
       },
       {
-        path: "singup",
-        element: <Singup />,
+        path: "signup",
+        element: <Signup />,
       },
       {
         path: "login",
@@ -97,6 +97,7 @@ const router = createBrowserRouter([
 ]);
 
 import { SmoothScroll } from "@/components/common/Scroll/SmoothScroll";
+import Signup from "./pages/Singup/Singup";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

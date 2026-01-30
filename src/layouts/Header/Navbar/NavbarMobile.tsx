@@ -34,7 +34,7 @@ const NavbarMobile = ({ setMenuOpen }: Props) => {
   return (
     <nav
       className="fixed inset-0 bg-primary-bg dark:bg-dark-primary-bg
-      flex flex-col w-full z-140 items-center justify-center transition-all"
+      flex flex-col w-full z-[10000] items-center justify-center transition-all"
     >
       <div className="flex flex-col gap-18 items-start justify-center">
         <div className="flex flex-col gap-4">
@@ -68,7 +68,7 @@ const NavbarMobile = ({ setMenuOpen }: Props) => {
           >
             {({ isActive }) => (
               <div
-                className={`w-8 h-8 ${isActive ? "bg-white" : "bg-white/30"}`}
+                className={`w-8 h-8 ${isActive ? " bg-gray-40 dark:bg-white" : " bg-gray-40 dark:bg-white/30"}`}
                 style={{
                   maskImage: `url(${cartImage})`,
                   WebkitMaskImage: `url(${cartImage})`,
@@ -85,7 +85,7 @@ const NavbarMobile = ({ setMenuOpen }: Props) => {
           </NavLink>
         </div>
         <div className="flex flex-col gap-6">
-          <ThemeToggleButton />
+          <ThemeToggleButton isLightIcon={true} />
           <button
             onClick={() => setMenuOpen(false)}
             className="text-neutral-500 text-[24px] cursor-pointer"

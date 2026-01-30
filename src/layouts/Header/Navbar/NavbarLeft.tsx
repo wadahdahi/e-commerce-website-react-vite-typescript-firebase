@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
 import { FaUserShield } from "react-icons/fa6";
+import ArrowButton from "@/components/common/ArrowButton/ArrowButton";
 
 // DESKTOP NAVBAR (MD, XL)
 // LEFT NAVBAR
@@ -18,7 +19,12 @@ const baseNavItems = [
   },
 ];
 
-export default function NavbarLeft() {
+type Props = {
+  onToggleExpansion?: () => void;
+  isExpanded?: boolean;
+};
+
+export default function NavbarLeft({ onToggleExpansion, isExpanded }: Props) {
   const { user, role, isAdmin, logout, loading } = useAuth();
 
   // DEBUG: CONSOLE LOG FOR ROLE
@@ -47,8 +53,8 @@ export default function NavbarLeft() {
   };
 
   return (
-    <nav className="w-fit flex flex-row justify-between items-center">
-      <div className="md:flex hidden justify-between items-center">
+    <nav className="hidden lg:flex w-fit flex-row justify-between items-center">
+      <div className="lg:flex hidden justify-between items-center">
         <div className="flex justify-start items-center gap-[14px]">
           {/* BASE NAVIGATION - ALWAYS VISIBLE */}
           {baseNavItems.map((item, index) => (
@@ -61,19 +67,19 @@ export default function NavbarLeft() {
             </NavLink>
           ))}
 
+          {/* ARROW BUTTON (lg and upwards) */}
+          {!user && !loading && (
+            <ArrowButton
+              onClick={onToggleExpansion}
+              isExpanded={isExpanded}
+              label={isExpanded ? "Show Less" : "Show More"}
+              className="hidden lg:flex"
+            />
+          )}
+
           {/* GUARD AUTH BUTTONS WITH LOADING STATE */}
           {!loading && (
             <>
-              {/* DASHBOARD LINK - TEXT (ONLY FOR ADMIN) */}
-              {isAdmin && (
-                <NavLink
-                  to="/overview"
-                  className={({ isActive }) => linkClass(isActive)}
-                >
-                  Dashboard
-                </NavLink>
-              )}
-
               {/* DASHBOARD ICON BUTTON - OLD STYLE (ONLY FOR ADMIN) */}
               {isAdmin && (
                 <NavLink
@@ -88,9 +94,9 @@ export default function NavbarLeft() {
                 </NavLink>
               )}
 
-              {/* FOR GUESTS: LOGIN & SIGNUP */}
+              {/* FOR GUESTS: LOGIN & SIGNUP - ONLY 2XL, HIDDEN ON XL */}
               {!user && (
-                <>
+                <div className="hidden gap-[14px] transition-all duration-300">
                   <NavLink
                     to="/login"
                     className={({ isActive }) => linkClass(isActive)}
@@ -98,12 +104,12 @@ export default function NavbarLeft() {
                     Login
                   </NavLink>
                   <NavLink
-                    to="/singup"
+                    to="/signup"
                     className={({ isActive }) => linkClass(isActive)}
                   >
                     Sign Up
                   </NavLink>
-                </>
+                </div>
               )}
 
               {/* FOR AUTHENTICATED USERS: LOGOUT */}
@@ -120,10 +126,9 @@ export default function NavbarLeft() {
               )}
             </>
           )}
-
           {/* OPTIONAL: SHOW SMOL SPINNER DURING AUTH RESOLUTION */}
           {loading && (
-            <div className="w-8 h-8 border-2 border-brown-60 border-t-transparent rounded-full animate-spin"></div>
+            <div className="w-8 h-8 border-2 border-brown-60 border-t-2 border-t-transparent rounded-full animate-spin"></div>
           )}
         </div>
       </div>

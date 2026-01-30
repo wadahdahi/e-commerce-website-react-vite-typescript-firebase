@@ -85,6 +85,18 @@ export default function MainLayout() {
     setIsSidebarOpen(false);
   }, [location.pathname]);
 
+  // BODY SCROLL LOCK
+  useEffect(() => {
+    if (isSidebarOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isSidebarOpen]);
+
   if (isAdmin) {
     return (
       <div className="flex bg-primary-bg dark:bg-dark-primary-bg dark:text-white min-h-screen transition-colors duration-300">
@@ -97,7 +109,7 @@ export default function MainLayout() {
         <div className="flex-1 flex flex-col lg:ml-64">
           {/* CRUD BAR */}
           <CRUDBar onMobileMenuToggle={() => setIsSidebarOpen(true)} />
-          <div className="mt-16 p-4 lg:p-8 pb-40">
+          <div className="mt-16 p-2 lg:p-8 pb-40">
             <main className="w-full max-w-(--breakpoint-2xl) mx-auto">
               <Outlet />
             </main>

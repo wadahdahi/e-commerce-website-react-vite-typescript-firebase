@@ -87,7 +87,7 @@ export default function TestFirestore() {
   };
 
   return (
-    <div className="p-8 max-w-2xl mx-auto mt-10 border rounded-xl shadow-lg bg-white dark:bg-dark-12">
+    <div className="p-8 max-w-2xl mx-auto mt-10 border-2 rounded-xl shadow-lg bg-white dark:bg-dark-12">
       <h1 className="text-2xl font-bold mb-6 text-brown-60">
         🛠️ Firestore Diagnostics
       </h1>
@@ -114,7 +114,7 @@ export default function TestFirestore() {
         <div className="grid grid-cols-1 gap-4 mt-6">
           {/* WRITE TEST */}
           <div
-            className={`p-4 border rounded-lg ${status.write.includes("SUCCESS") ? "bg-green-50 border-green-200" : status.write.includes("FAILED") ? "bg-red-50 border-red-200" : "bg-gray-50"}`}
+            className={`p-4 border-2 rounded-lg ${status.write.includes("SUCCESS") ? "bg-green-50 border-green-200" : status.write.includes("FAILED") ? "bg-red-50 border-red-200" : "bg-gray-50"}`}
           >
             <h3 className="font-bold mb-2">Test 1: Write Permission</h3>
             <p className="text-lg">{status.write}</p>
@@ -127,7 +127,7 @@ export default function TestFirestore() {
 
           {/* READ TEST */}
           <div
-            className={`p-4 border rounded-lg ${status.read.includes("SUCCESS") ? "bg-green-50 border-green-200" : status.read.includes("FAILED") ? "bg-red-50 border-red-200" : "bg-gray-50"}`}
+            className={`p-4 border-2 rounded-lg ${status.read.includes("SUCCESS") ? "bg-green-50 border-green-200" : status.read.includes("FAILED") ? "bg-red-50 border-red-200" : "bg-gray-50"}`}
           >
             <h3 className="font-bold mb-2">Test 2: Read Permission</h3>
             <p className="text-lg">{status.read}</p>

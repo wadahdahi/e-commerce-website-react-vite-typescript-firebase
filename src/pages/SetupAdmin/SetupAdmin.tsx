@@ -125,17 +125,17 @@ const SetupAdmin = () => {
           onSubmit={handleEmailSetup}
         >
           {error && (
-            <div className="p-3 bg-red-500/10 border border-red-500/30 rounded-lg text-red-600 dark:text-red-400 text-sm">
+            <div className="p-3 bg-red-500/10 border-2 border-red-500/30 rounded-lg text-red-600 dark:text-red-400 text-sm">
               {error}
             </div>
           )}
 
-          <div className="p-3 bg-blue-500/10 border border-blue-500/30 rounded-lg text-blue-600 dark:text-blue-400 text-sm">
+          <div className="p-3 bg-blue-500/10 border-2 border-blue-500/30 rounded-lg text-blue-600 dark:text-blue-400 text-sm">
             💡 استخدم بريدك الإلكتروني الحقيقي وكلمة مرور قوية
           </div>
 
           {/* GOOGLE SIGN IN - EASIEST WAY */}
-          <div className="p-3 bg-green-500/10 border border-green-500/30 rounded-lg">
+          <div className="p-3 bg-green-500/10 border-2 border-green-500/30 rounded-lg">
             <GoogleSignInButton
               onClick={handleGoogleSetup}
               loading={googleLoading}
@@ -146,7 +146,7 @@ const SetupAdmin = () => {
           {/* DIVIDER */}
           <div className="relative">
             <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-dashed border-gray-300 dark:border-dark-15"></div>
+              <div className="w-full border-t-2 border-dashed border-gray-300 dark:border-dark-15"></div>
             </div>
             <div className="relative flex justify-center text-sm">
               <span className="px-4 bg-brown-80 dark:bg-dark-12 text-gray-500 dark:text-gray-400">

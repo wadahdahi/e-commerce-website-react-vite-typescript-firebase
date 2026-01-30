@@ -99,7 +99,7 @@ export default function CRUDBar({ onMobileMenuToggle }: CRUDBarProps) {
           >
             <UIcon icon={ICONS.ACTIONS.TOGGLE_LIST} className="w-6 h-6" />
           </button>
-          <div className="font-mono text-base lg:text-xl font-bold truncate text-dark-10 dark:text-white">
+          <div className="font-mono text-base lg:text-xl font-bold truncate text-dark-10 dark:text-white hidden sm:block">
             Admin Dashboard
           </div>
         </div>

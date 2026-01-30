@@ -36,10 +36,10 @@ const FloatingUtilityBar = ({
     <div className="fixed bottom-6 right-0 left-0 lg:left-64 z-9998 pointer-events-none px-4">
       <div className=" mx-auto flex justify-center">
         <div
-          className="w-auto min-w-[500px] max-w-5xl bg-white/90 dark:bg-white/10 backdrop-blur-md
-        border border-dashed border-gray-200 dark:border-white/20
-        p-2.5 px-4 rounded-2xl shadow-xl flex items-center justify-between
-        gap-3 lg:gap-4 pointer-events-auto transform animate-in slide-in-from-bottom-8 duration-500 scale-95 sm:scale-100"
+          className="w-full max-w-5xl bg-white/90 dark:bg-white/10 backdrop-blur-md
+        border-2 border-dashed border-gray-200 dark:border-white/20
+        p-2 px-3 lg:p-2.5 lg:px-4 rounded-2xl shadow-xl flex items-center justify-between
+        gap-2 pointer-events-auto transform animate-in slide-in-from-bottom-8 duration-500 scale-95 sm:scale-100"
         >
           <div className="flex flex-col pr-2 border-r border-gray-200 dark:border-white/10">
             <span className="text-[9px] lg:text-[10px] font-mono text-brown-80 uppercase tracking-widest leading-none">

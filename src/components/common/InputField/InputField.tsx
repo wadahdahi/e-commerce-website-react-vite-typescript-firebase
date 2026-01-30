@@ -116,7 +116,7 @@ const InputField = ({
 
             rounded-[7px] xl:rounded-lg 2xl:rounded-xl
 
-            border border-dashed border-dark-15
+            border-2 border-dashed border-dark-15
             focus:border-[#1A1A1A]
             dark:focus:border-brown-60
             focus:outline-none

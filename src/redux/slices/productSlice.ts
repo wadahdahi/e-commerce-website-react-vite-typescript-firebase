@@ -21,7 +21,7 @@ const initialState: ProductState = {
     activeTypeForSections: "Women",
     filteredSections: [],
     selectedProductIds: [],
-    viewMode: 'grid',
+    viewMode: 'list',
     isDeleteHovered: false,
     currentPage: 0,
     listVisibleCount: 100,

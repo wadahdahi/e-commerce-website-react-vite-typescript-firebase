@@ -33,10 +33,11 @@ export default function ThemeToggleButton({
     <label
       className={`relative grid place-items-center cursor-pointer transition-all duration-300 ${
         isCircleWrapped
-          ? "w-10 h-10 bg-brown-70 dark:bg-dark-20 rounded-full"
+          ? "w-[46px] h-[46px] rounded-full border-2 border-dashed border-brown-60/20 dark:border-white/10 bg-transparent hover:border-brown-100 dark:hover:border-white/30 hover:bg-brown-60/5"
           : "w-6 h-6 bg-transparent"
       }`}
       aria-label="Toggle light/dark theme"
+      title="Toggle light/dark theme"
     >
       <input
         type="checkbox"
@@ -50,10 +51,18 @@ export default function ThemeToggleButton({
           checked ? "scale-100 rotate-0" : "scale-0"
         }`}
       >
-        <img
-          src="/assets/icons/general/moon.svg"
-          alt="moon"
-          className={`${isCircleWrapped ? "w-5 h-5" : "w-6 h-6"} ${isLightIcon ? (theme === "dark" ? "brightness-200" : "brightness-0") : ""}`}
+        <div
+          className={`${isCircleWrapped ? "w-5 h-5" : "w-6 h-6"} bg-brown-60 dark:bg-white`}
+          style={{
+            maskImage: "url(/assets/icons/general/moon.svg)",
+            WebkitMaskImage: "url(/assets/icons/general/moon.svg)",
+            maskSize: "contain",
+            WebkitMaskSize: "contain",
+            maskRepeat: "no-repeat",
+            WebkitMaskRepeat: "no-repeat",
+            maskPosition: "center",
+            WebkitMaskPosition: "center",
+          }}
         />
       </div>
 
@@ -62,10 +71,18 @@ export default function ThemeToggleButton({
           checked ? "scale-0" : "scale-100 rotate-0"
         }`}
       >
-        <img
-          src="/assets/icons/general/sun.svg"
-          alt="sun"
-          className={`${isCircleWrapped ? "w-6 h-6" : "w-6.5 h-6.5"} ${isLightIcon ? (theme === "dark" ? "brightness-200" : "brightness-0") : ""}`}
+        <div
+          className={`${isCircleWrapped ? "w-5 h-5" : "w-6 h-6"} bg-brown-60 dark:bg-white`}
+          style={{
+            maskImage: "url(/assets/icons/general/sun.svg)",
+            WebkitMaskImage: "url(/assets/icons/general/sun.svg)",
+            maskSize: "contain",
+            WebkitMaskSize: "contain",
+            maskRepeat: "no-repeat",
+            WebkitMaskRepeat: "no-repeat",
+            maskPosition: "center",
+            WebkitMaskPosition: "center",
+          }}
         />
       </div>
     </label>
