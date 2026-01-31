@@ -1,3 +1,4 @@
+import Logo from "@/components/common/Logo/Logo";
 import CategoriesBarSection from "@/components/common/sections/CategoriesBarSection/CategoriesBarSection";
 import { IMAGES } from "@/constants/images";
 import { useIsDark } from "@/constants/useIsDark";
@@ -32,11 +33,7 @@ export default function Footer() {
           lg:flex-row lg:justify-between lg:items-center
         "
         >
-          <img
-            src={isDark ? IMAGES.LOGO_SVG.FOR_DARK : IMAGES.LOGO_SVG.FOR_LIGHT}
-            alt="logo"
-            className="lg:w-[630px] 2xl:w-[788px]"
-          />
+          <Logo dimensions="lg:w-[630px] 2xl:w-[788px]" />
 
           <div className="flex gap-4 2xl:gap-5">
             {socialIcons.map((icon) => (

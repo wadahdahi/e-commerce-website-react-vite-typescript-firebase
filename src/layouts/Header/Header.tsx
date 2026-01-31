@@ -9,6 +9,7 @@ import { useIsDark } from "@/constants/useIsDark";
 import { NavLink } from "react-router-dom";
 import ThemeToggleButton from "@/components/common/ThemeToggleButton/ThemeToggleButton";
 import ArrowButton from "@/components/common/ArrowButton/ArrowButton";
+import Logo from "@/components/common/Logo/Logo";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
@@ -88,13 +89,7 @@ export default function Header() {
               className="hidden md:flex lg:hidden"
             />
 
-            <img
-              src={
-                isDark ? IMAGES.LOGO_SVG.FOR_DARK : IMAGES.LOGO_SVG.FOR_LIGHT
-              }
-              alt="logo"
-              className="w-[150px] h-[28px]"
-            />
+            <Logo dimensions="w-[150px] h-[28px]" />
             <NavbarRight setMenuOpen={setMenuOpen} />
           </div>
 
