@@ -1,7 +1,12 @@
 import { ICONS, UIcon } from "@/constants/icons";
 import { IoShieldCheckmark } from "react-icons/io5";
+import { useAuth } from "@/context/AuthContext";
 
 export const AdminProfileCard = () => {
+  const { user, userName } = useAuth();
+  const displayName =
+    userName || user?.displayName || user?.email?.split("@")[0] || "Admin User";
+
   return (
     <div
       className="p-4 mx-4 mb-4 bg-brown-80 dark:bg-dark-15
@@ -27,8 +32,8 @@ export const AdminProfileCard = () => {
       </div>
 
       <div className="flex flex-col gap-0.5 overflow-hidden">
-        <h4 className="text-[16px] font-roboto font-bold text-dark-12 dark:text-white truncate">
-          Admin User
+        <h4 className="text-[16px] font-roboto font-bold text-dark-12 dark:text-white uppercase truncate">
+          {displayName}
         </h4>
         <div className="flex items-center gap-[2px] font-mono text-brown-40/60 dark:text-brown-60 text-[10px] uppercase tracking-tighter">
           <IoShieldCheckmark className="text-xl" />

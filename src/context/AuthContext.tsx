@@ -24,7 +24,8 @@ export interface AuthContextType {
   role: "admin" | "user" | null;
   loading: boolean;
   isAdmin: boolean;
-  isBanned: boolean; // NEW
+  isBanned: boolean;
+  userName: string | null;
   login: (email: string, password: string) => Promise<void>;
   signup: (email: string, password: string, name: string) => Promise<void>;
   logout: () => Promise<void>;
@@ -40,6 +41,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [isBanned, setIsBanned] = useState(() => {
     return localStorage.getItem(BAN_CACHE_KEY) === "true";
   });
+  const [userName, setUserName] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
   // FETCH USER ROLE & STATUS FROM FIRESTORE
@@ -50,9 +52,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         const userData = userDoc.data();
         const newRole = userData.role || "user";
         const newBanned = !!userData.isBanned;
+        const newName = userData.name || userData.displayName || null;
 
         setRole(newRole);
         setIsBanned(newBanned);
+        setUserName(newName);
 
         // SYNC CACHE
         localStorage.setItem(AUTH_CACHE_KEY, newRole);
@@ -133,7 +137,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         role,
         loading,
         isAdmin,
-        isBanned, // NEW
+        isBanned,
+        userName,
         login,
         signup,
         logout,
