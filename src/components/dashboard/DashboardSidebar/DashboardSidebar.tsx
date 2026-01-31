@@ -4,7 +4,6 @@ import { SidebarEditForm } from "./SidebarEditForm";
 import { AdminProfileCard } from "./AdminProfileCard";
 import { useAuth } from "@/context/AuthContext";
 import ThemeToggleButton from "../../common/ThemeToggleButton/ThemeToggleButton";
-import { FaXmark } from "react-icons/fa6";
 import { ICONS, UIcon } from "@/constants/icons";
 import Logo from "@/components/common/Logo/Logo";
 
@@ -56,16 +55,6 @@ export default function DashboardSidebar({
           <div className="bg-brown-100 dark:bg-dark-15 p-5 border-b-2 border-dark-15 border-dashed flex items-center justify-between">
             <Logo dimensions="w-[150px] h-[28px]" />
             <div className="flex gap-3 items-center">
-              {onClose && (
-                <button
-                  onClick={onClose}
-                  aria-label="Close sidebar"
-                  title="Close sidebar"
-                  className="lg:hidden p-2 text-dark-10 hover:bg-dark-15/10 dark:text-gray-400 dark:hover:text-white rounded-lg transition-colors"
-                >
-                  <FaXmark className="text-xl" />
-                </button>
-              )}
               <button
                 title="Notifications"
                 className="text-gray-400 hover:text-dark-12 dark:hover:text-white transition-colors relative"
