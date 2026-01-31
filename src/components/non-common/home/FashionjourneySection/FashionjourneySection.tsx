@@ -1,4 +1,4 @@
-import { Reveal } from "../../../common/Motion/Reveal";
+import SectionHeader from "@/components/common/UI/SectionHeader";
 
 export interface Details {
   num: number;
@@ -35,32 +35,18 @@ export default function Fashionjourney() {
   ];
 
   return (
-    <div className="relative mx-auto max-w-[1596px] w-full rounded-xl outline-2 outline-dashed outline-dark.15 font-roboto mt-8 mb-30 sm:mb-20 ">
-      <div className="relative overflow-hidden border-y-2 border-dashed border-dark-15">
-        <div className="flex flex-col justify-start h-full p-4 sm:p-10 lg:p-12">
-          <h1 className="font-medium text-2xl sm:text-4xl lg:text-5xl mb-2 sm:mb-4 lg:mb-6">
-            Navigating the StyleLoom Fashion Journey.
-          </h1>
-          <p className="text-sm sm:text-base lg:text-lg font-normal text-gray-40">
-            At StyleLoom, we've designed a straightforward shopping experience
-            to make fashion accessible.
-          </p>
-        </div>
-
-        <Reveal
-          className="absolute -top-13 -right-25 hidden sm:block lg:block"
-          variant="fade-right"
-          distance={220}
-          rotateInitial={135}
-          duration={1.2}
-          ease="backOut"
-        >
-          <img
-            src="/assets/icons/abstract-design/abstract-design-3.svg"
-            alt="abstract"
-            className="w-32 sm:w-50 lg:w-80 h-auto"
-          />
-        </Reveal>
+    <div className="relative mx-auto max-w-[1596px] w-full rounded-xl border-2 border-dashed border-dark-15 font-(--font-roboto) mt-8 mb-30 sm:mb-20 ">
+      <div
+        className="relative overflow-hidden w-full h-[221px] sm:h-[213px] lg:h-[273px] flex items-start justify-start
+                      border-b-2 border-dashed border-dark-15"
+      >
+        <SectionHeader
+          title="Navigating the StyleLoom Fashion Journey."
+          subtitle="At StyleLoom, we've designed a straightforward shopping experience to make fashion accessible."
+          imageSrc="/assets/icons/abstract-design/abstract-design-3.svg"
+          position="-top-13 -right-25"
+          dimentions="w-32 sm:w-50 lg:w-80 h-auto"
+        />
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-4 gap-0 mt-0 relative">
         {details.map((detail, index) => {
@@ -68,15 +54,17 @@ export default function Fashionjourney() {
           return (
             <div
               key={index}
-              className={` flex flex-col justify-around text-center p-4 w-full h-[186px] sm:h-[280px] lg:h-[299px] ${!isFirst ? "border-t-2 border-dashed border-[theme(colors.dark.15)] sm:border-t-0" : ""}  ${!isFirst ? "sm:border-l-2 sm:border-dashed sm:border-[theme(colors.dark.15)]" : ""}`}
+              className={` p-[30px] sm:p-1 lg:p-[50px] 2xl:p-[50px]  w-full h-[186px] sm:h-[280px] lg:h-[299px] ${!isFirst ? "border-t-2 border-dashed border-dark-15 sm:border-t-0" : ""}  ${!isFirst ? "sm:border-l-2 sm:border-dashed sm:border-dark-15" : ""}`}
             >
-              <p className="text-base sm:text-lg font-normal font-[var(--font-mono)] text-[var(--color-gray-40)]">
+              <p className="font-normal font-robotmono   text-[16px] sm:text-lg 2xl:text-xl text-gray-40 mb-5 sm:mb-6 2xl:mb-[30px]">
                 Step 0{detail.num}
               </p>
-              <h1 className="font-medium text-lg sm:text-xl lg:text-2xl mt-1 sm:mt-2 lg:mt-3">
+              <h3
+                className={`font-roboto font-medium dark:text-primary-bg text-dark-primary-bg mb-2.5 sm:mb-3 2xl:mb-[16px] leading-[150%] text-xl sm:text-[22px] 2xl:text-[28px]`}
+              >
                 {detail.title}
-              </h1>
-              <p className="text-sm sm:text-base lg:text-lg font-normal mt-2 lg:mt-4 px-2 text-[var(--color-gray-40)]">
+              </h3>
+              <p className="font-roboto font-normal text-sm sm:text-[16px] 2xl:text-lg text-gray-50 leading-[150%]">
                 {detail.description}
               </p>
             </div>

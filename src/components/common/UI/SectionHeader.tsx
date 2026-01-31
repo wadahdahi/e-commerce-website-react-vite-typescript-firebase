@@ -2,6 +2,8 @@ interface SectionHeaderProps {
   title: string;
   subtitle?: string;
   imageSrc?: string;
+  position?: string;
+  dimentions?: string;
   extraComponent?: React.ReactNode;
 }
 
