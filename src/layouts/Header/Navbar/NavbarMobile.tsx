@@ -36,11 +36,17 @@ const NavbarMobile = ({ setMenuOpen }: Props) => {
       className="fixed inset-0 bg-primary-bg dark:bg-dark-primary-bg
       flex flex-col w-full z-[10000] items-center justify-center transition-all"
     >
+      {/* FIXED THEME TOGGLE AT TOP LEFT */}
+      <div className="fixed top-6 left-6 z-[10001]">
+        <ThemeToggleButton isLightIcon={true} />
+      </div>
+
       <div className="flex flex-col gap-18 items-start justify-center">
         <div className="flex flex-col gap-4">
           {ItemNav?.map((item, index) => {
             return (
               <NavLink
+                key={index}
                 to={item.path}
                 onClick={() => setMenuOpen(false)}
                 className={({ isActive }) =>
@@ -83,9 +89,36 @@ const NavbarMobile = ({ setMenuOpen }: Props) => {
               />
             )}
           </NavLink>
+
+          <NavLink
+            to="/login"
+            onClick={() => setMenuOpen(false)}
+            className={({ isActive }) =>
+              `text-2xl font-semibold font-mono  ${
+                isActive
+                  ? " text-dark-10 dark:text-white font-bold border-b border-brown-60"
+                  : " text-neutral-500 "
+              }`
+            }
+          >
+            Login
+          </NavLink>
+
+          <NavLink
+            to="/signup"
+            onClick={() => setMenuOpen(false)}
+            className={({ isActive }) =>
+              `text-2xl font-semibold font-mono  ${
+                isActive
+                  ? " text-dark-10 dark:text-white font-bold border-b border-brown-60"
+                  : " text-neutral-500 "
+              }`
+            }
+          >
+            Sign Up
+          </NavLink>
         </div>
         <div className="flex flex-col gap-6">
-          <ThemeToggleButton isLightIcon={true} />
           <button
             onClick={() => setMenuOpen(false)}
             className="text-neutral-500 text-[24px] cursor-pointer"

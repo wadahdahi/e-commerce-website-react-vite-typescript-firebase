@@ -36,7 +36,6 @@ export const ICONS = {
 export const UIcon = ({
   icon,
   className = "w-5 h-5",
-  alt = "icon",
   gray = false,
 }: {
   icon: string;
@@ -44,9 +43,18 @@ export const UIcon = ({
   alt?: string;
   gray?: boolean;
 }) => (
-  <img
-    src={icon}
-    alt={alt}
-    className={`${className} ${gray ? "brightness-0 invert opacity-50" : ""}`}
+  <div
+    className={`${className} ${gray ? "bg-gray-400 opacity-50" : "bg-current"}`}
+    style={{
+      maskImage: `url(${icon})`,
+      WebkitMaskImage: `url(${icon})`,
+      maskSize: "contain",
+      WebkitMaskSize: "contain",
+      maskRepeat: "no-repeat",
+      WebkitMaskRepeat: "no-repeat",
+      maskPosition: "center",
+      WebkitMaskPosition: "center",
+      display: "inline-block",
+    }}
   />
 );

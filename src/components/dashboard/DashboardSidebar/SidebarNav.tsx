@@ -32,7 +32,7 @@ export const SidebarNav = ({
         className="w-full flex items-center justify-between px-4 py-2.5 bg-brown-80 dark:bg-dark-15 border border-dashed border-dark-15 rounded-md text-dark-10 dark:text-white font-mono transition-all hover:bg-gray-100 dark:hover:bg-dark-20 active:scale-[0.98]"
       >
         <div className="flex items-center gap-3">
-          <span className="text-lg text-brown-60">{activePage.icon}</span>
+          <span className="text-lg flex items-center">{activePage.icon}</span>
           <span>{activePage.name}</span>
         </div>
         <FaChevronDown
@@ -59,7 +59,7 @@ export const SidebarNav = ({
                 }`
               }
             >
-              <span className="text-xl">{page.icon}</span>
+              <span className="text-xl flex items-center">{page.icon}</span>
               <span className="flex flex-row w-full items-center justify-between">
                 <span>{page.name}</span>
                 <span className="text-xs text-gray-500 dark:text-gray-400">

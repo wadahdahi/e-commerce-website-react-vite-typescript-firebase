@@ -94,10 +94,22 @@ export default function CRUDBar({ onMobileMenuToggle }: CRUDBarProps) {
         <div className="flex items-center gap-4">
           <button
             onClick={onMobileMenuToggle}
-            className="lg:hidden p-2 text-dark-10 dark:text-gray-400 hover:bg-dark-15/10 dark:hover:bg-white/5 rounded-lg active:scale-95"
+            className="lg:hidden p-2 rounded-lg active:scale-95 transition-colors hover:bg-dark-15/10 dark:hover:bg-white/5"
             title="Open Menu"
           >
-            <UIcon icon={ICONS.ACTIONS.TOGGLE_LIST} className="w-6 h-6" />
+            <div
+              className="w-6 h-6 bg-brown-80 dark:bg-gray-400"
+              style={{
+                maskImage: `url(${ICONS.ACTIONS.TOGGLE_LIST})`,
+                WebkitMaskImage: `url(${ICONS.ACTIONS.TOGGLE_LIST})`,
+                maskSize: "contain",
+                WebkitMaskSize: "contain",
+                maskRepeat: "no-repeat",
+                WebkitMaskRepeat: "no-repeat",
+                maskPosition: "center",
+                WebkitMaskPosition: "center",
+              }}
+            />
           </button>
           <div className="font-mono text-base lg:text-xl font-bold truncate text-dark-10 dark:text-white hidden sm:block">
             Admin Dashboard

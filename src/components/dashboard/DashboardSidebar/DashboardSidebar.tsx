@@ -46,15 +46,15 @@ export default function DashboardSidebar({
       )}
 
       <div
-        className={`fixed top-0 left-0 w-64 h-full justify-between bg-brown-100/80 dark:bg-dark-10
+        className={`fixed inset-y-0 left-0 w-64 bg-brown-100/80 dark:bg-dark-10
           border-r-2 border-dark-15 border-dashed lg:border-solid
-          flex flex-col z-10002 overflow-y-auto scroll-area shadow-2xl transition-all duration-300 ${
+          flex flex-col z-10002 overflow-y-auto overflow-x-hidden scroll-area shadow-2xl transition-all duration-300 overscroll-contain ${
             isMobileOpen
               ? "translate-x-0"
               : "-translate-x-full lg:translate-x-0"
           }`}
       >
-        <div className="flex flex-col">
+        <div className="flex flex-col flex-1">
           <div className="bg-brown-100 dark:bg-dark-15 p-5 border-b-2 border-dark-15 border-dashed flex items-center justify-between">
             <Logo dimensions="w-[150px] h-[28px]" />
             <div className="flex gap-3 items-center">
