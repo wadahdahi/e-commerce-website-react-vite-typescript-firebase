@@ -155,7 +155,7 @@ export default function CRUDBar({ onMobileMenuToggle }: CRUDBarProps) {
               disabled={!isProductsPage || selectedCount === 0}
               onMouseEnter={onDeleteEnter}
               onMouseLeave={onDeleteLeave}
-              className={`${crudButtonClass} ${!isProductsPage || selectedCount === 0 ? "bg-red-500/30 opacity-30 cursor-not-allowed grayscale" : "bg-brown-60 hover:bg-brown-80"}`}
+              className={`${crudButtonClass} ${!isProductsPage || selectedCount === 0 ? "bg-red-500/30 opacity-30 cursor-not-allowed grayscale" : "bg-brown-60 hover:bg-brown-80 dark:bg-dark-15 dark:hover:bg-dark-15"}`}
               title={
                 !isProductsPage
                   ? "Available on Products page"
