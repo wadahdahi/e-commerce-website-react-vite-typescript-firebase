@@ -1,4 +1,5 @@
 import { ICONS, UIcon } from "@/constants/icons";
+import { FaListUl } from "react-icons/fa6";
 
 interface ViewListGridToggleButtonProps {
   viewMode: "grid" | "list";
@@ -21,10 +22,7 @@ export default function ViewListGridToggleButton({
       aria-label="Toggle View Mode"
     >
       {viewMode === "grid" ? (
-        <UIcon
-          icon={ICONS.ACTIONS.TOGGLE_LIST}
-          className="w-5 h-5 grayscale contrast-200 brightness-200"
-        />
+        <FaListUl className="w-5 h-5 grayscale contrast-200 brightness-200" />
       ) : (
         <UIcon
           icon={ICONS.ACTIONS.TOGGLE_GRID}

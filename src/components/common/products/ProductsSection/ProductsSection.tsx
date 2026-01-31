@@ -13,7 +13,6 @@ import {
   setCurrentPage,
   loadMoreListItems,
 } from "@/redux/slices/productSlice";
-import { ProductMiniPreview } from "../../../dashboard/ProductMiniPreview/ProductMiniPreview";
 import { ICONS, UIcon } from "@/constants/icons";
 import { IMAGES } from "@/constants/images";
 

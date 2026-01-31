@@ -4,8 +4,6 @@ import NavbarRight from "./Navbar/NavbarRight";
 import NavbarMobile from "./Navbar/NavbarMobile";
 import { useScrollHeader } from "@/hooks/useScrollHeader";
 import { useClickOutside } from "@/hooks/useClickOutside";
-import { IMAGES } from "@/constants/images";
-import { useIsDark } from "@/constants/useIsDark";
 import { NavLink } from "react-router-dom";
 import ThemeToggleButton from "@/components/common/ThemeToggleButton/ThemeToggleButton";
 import ArrowButton from "@/components/common/ArrowButton/ArrowButton";
@@ -17,7 +15,6 @@ export default function Header() {
   const { isVisible, setIsVisible, isScrolled } = useScrollHeader({
     isDisabled: expandedMode,
   });
-  const isDark = useIsDark();
   const headerRef = useRef<HTMLElement>(null);
 
   // CLOSE EXPANSION AND HIDE ON CLICK OUTSIDE

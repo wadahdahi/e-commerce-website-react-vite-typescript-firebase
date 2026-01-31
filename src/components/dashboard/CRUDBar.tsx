@@ -100,7 +100,7 @@ export default function CRUDBar({ onMobileMenuToggle }: CRUDBarProps) {
             title="Open Menu"
           >
             <div
-              className="w-6 h-6 bg-brown-80 dark:bg-gray-400"
+              className="w-6 h-6 bg-brown-60"
               style={{
                 maskImage: `url(${ICONS.ACTIONS.TOGGLE_LIST})`,
                 WebkitMaskImage: `url(${ICONS.ACTIONS.TOGGLE_LIST})`,
@@ -137,7 +137,7 @@ export default function CRUDBar({ onMobileMenuToggle }: CRUDBarProps) {
             <button
               onClick={handleCreate}
               disabled={!isProductsPage}
-              className={`${crudButtonClass} bg-brown-80/80 hover:bg-brown-80 dark:bg-dark-15 ${showAddForm ? "ring-2 ring-white/50" : ""} ${!isProductsPage ? "opacity-30 cursor-not-allowed grayscale" : ""}`}
+              className={`${crudButtonClass} bg-brown-60 hover:bg-brown-80 dark:bg-dark-15 ${showAddForm ? "ring-2 ring-white/50" : ""} ${!isProductsPage ? "opacity-30 cursor-not-allowed grayscale" : ""}`}
               title={
                 isProductsPage
                   ? "Create New Product"
@@ -155,7 +155,7 @@ export default function CRUDBar({ onMobileMenuToggle }: CRUDBarProps) {
               disabled={!isProductsPage || selectedCount === 0}
               onMouseEnter={onDeleteEnter}
               onMouseLeave={onDeleteLeave}
-              className={`${crudButtonClass} ${!isProductsPage || selectedCount === 0 ? "bg-red-500/30 opacity-30 cursor-not-allowed grayscale" : "bg-brown-80/80 hover:bg-brown-80"}`}
+              className={`${crudButtonClass} ${!isProductsPage || selectedCount === 0 ? "bg-red-500/30 opacity-30 cursor-not-allowed grayscale" : "bg-brown-60 hover:bg-brown-80"}`}
               title={
                 !isProductsPage
                   ? "Available on Products page"

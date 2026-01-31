@@ -6,8 +6,6 @@ import { useAuth } from "@/context/AuthContext";
 import ThemeToggleButton from "../../common/ThemeToggleButton/ThemeToggleButton";
 import { FaXmark } from "react-icons/fa6";
 import { ICONS, UIcon } from "@/constants/icons";
-import { IMAGES } from "@/constants/images";
-import { useIsDark } from "@/constants/useIsDark";
 import Logo from "@/components/common/Logo/Logo";
 
 interface DashboardSidebarProps {
@@ -20,7 +18,6 @@ export default function DashboardSidebar({
   onClose,
 }: DashboardSidebarProps) {
   const { isAdmin } = useAuth();
-  const isDark = useIsDark();
   const {
     formData,
     isNavOpen,

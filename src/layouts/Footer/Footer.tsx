@@ -1,7 +1,5 @@
 import Logo from "@/components/common/Logo/Logo";
 import CategoriesBarSection from "@/components/common/sections/CategoriesBarSection/CategoriesBarSection";
-import { IMAGES } from "@/constants/images";
-import { useIsDark } from "@/constants/useIsDark";
 import { Link } from "react-router-dom";
 
 const socialIcons = ["instagram", "website", "twitter", "behance"];
@@ -17,7 +15,6 @@ const categories = [
   "Muscle Shirt",
 ];
 export default function Footer() {
-  const isDark = useIsDark();
   return (
     <footer
       className="
