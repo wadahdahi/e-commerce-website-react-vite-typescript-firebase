@@ -6,11 +6,13 @@ import { store } from "./redux/store";
 import "./index.css";
 import { AuthProvider } from "@/context/AuthContext";
 import { AdminRoute } from "@/components/auth/AdminRoute";
+import { SmoothScroll } from "@/components/common/Scroll/SmoothScroll";
 
 // Layout
 import MainLayout from "@/layouts/MainLayout/MainLayout";
 
 // Pages
+import Signup from "./pages/Singup/Singup";
 import HomePage from "@/pages/HomePage/HomePage";
 import ProductsPage from "@/pages/ProductsPage/ProductsPage";
 import ProductDetailsPage from "@/pages/ProductDetailsPage/ProductDetailsPage";
@@ -19,7 +21,6 @@ import CartPage from "@/pages/CartPage/CartPage";
 import CheckoutPage from "./pages/CheckoutPage/CheckoutPage";
 import DashboardOverview from "./pages/Dashboard/DashboardOverview";
 import NotFound from "./pages/NotFound/NotFound";
-import Singup from "./pages/Singup/Singup";
 import Login from "./pages/Login/Login";
 import SetupAdmin from "./pages/SetupAdmin/SetupAdmin";
 
@@ -95,9 +96,6 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
   },
 ]);
-
-import { SmoothScroll } from "@/components/common/Scroll/SmoothScroll";
-import Signup from "./pages/Singup/Singup";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
