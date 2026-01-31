@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "@/redux/store";
+import { RootState, AppDispatch } from "@/redux/store";
 import {
   clearSelection,
   deleteProductsByIds,
@@ -19,7 +19,7 @@ interface CRUDBarProps {
 }
 
 export default function CRUDBar({ onMobileMenuToggle }: CRUDBarProps) {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const selectedProductIds = useSelector(
     (state: RootState) => state.product.selectedProductIds,
   );

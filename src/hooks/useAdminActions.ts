@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { RootState } from "@/redux/store";
+import { RootState, AppDispatch } from "@/redux/store";
 import {
   clearSelection,
   selectAll,
@@ -12,8 +12,8 @@ import { ITEMS_PER_PAGE } from "@/components/common/products/ProductsSection/Pro
 import { Product } from "@/type";
 import { PAGES } from "@/hooks/useSidebarData";
 
-export const useAdminActions = () => {
-  const dispatch = useDispatch();
+export const useAdminActions = (isSidebarOpen: boolean = false) => {
+  const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
 
   const {
@@ -29,6 +29,15 @@ export const useAdminActions = () => {
   // --- DYNAMIC KEYBOARD SHORTCUTS LOGIC ---
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
+      // IGNORE IF MODIFIER KEYS ARE PRESSED (LIKE CTRL+C, ALT+TAB, etc.)
+      if (event.ctrlKey || event.altKey || event.shiftKey || event.metaKey) {
+        return;
+      }
+
+      // CHECK IF SIDEBAR IS VISIBLE (ALWAYS ON DESKTOP, OPEN ON MOBILE)
+      const isDesktop = window.innerWidth >= 1024;
+      if (!isDesktop && !isSidebarOpen) return;
+
       const activeElement = document.activeElement;
       const isTyping =
         activeElement instanceof HTMLInputElement ||
@@ -50,7 +59,7 @@ export const useAdminActions = () => {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [navigate]);
+  }, [navigate, isSidebarOpen]);
 
   // --- ACTIONS LOGIC ---
   const handleSelectAll = () => {

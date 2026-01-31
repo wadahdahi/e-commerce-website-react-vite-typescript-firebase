@@ -8,6 +8,7 @@ import { FaXmark } from "react-icons/fa6";
 import { ICONS, UIcon } from "@/constants/icons";
 import { IMAGES } from "@/constants/images";
 import { useIsDark } from "@/constants/useIsDark";
+import Logo from "@/components/common/Logo/Logo";
 
 interface DashboardSidebarProps {
   isMobileOpen?: boolean;
@@ -45,7 +46,7 @@ export default function DashboardSidebar({
       )}
 
       <div
-        className={`fixed top-0 left-0 w-64 h-full justify-between bg-brown-80/40 dark:bg-dark-10
+        className={`fixed top-0 left-0 w-64 h-full justify-between bg-brown-100/80 dark:bg-dark-10
           border-r-2 border-dark-15 border-dashed lg:border-solid
           flex flex-col z-10002 overflow-y-auto scroll-area shadow-2xl transition-all duration-300 ${
             isMobileOpen
@@ -54,12 +55,8 @@ export default function DashboardSidebar({
           }`}
       >
         <div className="flex flex-col">
-          <div className="p-5 border-b-2 border-dark-15 border-dashed flex items-center justify-between">
-            <img
-              src={isDark ? IMAGES.LOGO.FOR_DARK : IMAGES.LOGO.FOR_LIGHT}
-              alt="logo"
-              className="w-[150px] h-[28px]"
-            />
+          <div className="bg-brown-100 dark:bg-dark-15 p-5 border-b-2 border-dark-15 border-dashed flex items-center justify-between">
+            <Logo dimensions="w-[150px] h-[28px]" />
             <div className="flex gap-3 items-center">
               {onClose && (
                 <button

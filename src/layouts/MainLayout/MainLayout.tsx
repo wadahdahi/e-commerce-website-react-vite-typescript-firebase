@@ -11,7 +11,7 @@ import CRUDBar from "@/components/dashboard/CRUDBar";
 import FloatingUtilityBar from "@/components/dashboard/FloatingUtilityBar";
 import { useAdminActions } from "@/hooks/useAdminActions";
 
-import { doc, updateDoc, increment, setDoc, getDoc } from "firebase/firestore";
+import { doc, updateDoc, increment, setDoc } from "firebase/firestore";
 import { db } from "@/config/Firebase";
 
 export default function MainLayout() {
@@ -60,7 +60,6 @@ export default function MainLayout() {
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  // HOOK FOR ADMIN ACTIONS & SHORTCUTS
   const {
     selectedCount,
     viewMode,
@@ -69,7 +68,7 @@ export default function MainLayout() {
     handleExportCSV,
     handleClearSelection,
     handleToggleViewMode,
-  } = useAdminActions();
+  } = useAdminActions(isSidebarOpen);
   // ADMIN REDIRECTION LOGIC
   useEffect(() => {
     const hasRedirected = sessionStorage.getItem("adminHasRedirected");
@@ -99,14 +98,14 @@ export default function MainLayout() {
 
   if (isAdmin) {
     return (
-      <div className="flex bg-primary-bg dark:bg-dark-primary-bg dark:text-white min-h-screen transition-colors duration-300">
+      <div className="bg-primary-bg dark:bg-dark-primary-bg dark:text-white min-h-screen transition-colors duration-300 overflow-x-hidden relative">
         {/* DASHBOARD SIDEBAR */}
         <DashboardSidebar
           isMobileOpen={isSidebarOpen}
           onClose={() => setIsSidebarOpen(false)}
         />
         {/* MAIN CONTENT */}
-        <div className="flex-1 flex flex-col lg:ml-64">
+        <div className="lg:ml-64 flex flex-col min-h-screen overflow-x-hidden">
           {/* CRUD BAR */}
           <CRUDBar onMobileMenuToggle={() => setIsSidebarOpen(true)} />
           <div className="mt-16 p-2 lg:p-8 pb-40">
