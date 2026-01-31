@@ -174,6 +174,7 @@ export default function UsersPage() {
           <input
             type="text"
             placeholder="Full Name"
+            aria-label="Full Name"
             value={newUser.name}
             onChange={(e) => setNewUser({ ...newUser, name: e.target.value })}
             className="px-4 py-2 border-2 dark:bg-dark-15 dark:border-white/10 dark:text-white rounded-lg outline-none focus:border-brown-60"
@@ -181,6 +182,7 @@ export default function UsersPage() {
           <input
             type="email"
             placeholder="Email"
+            aria-label="Email"
             value={newUser.email}
             onChange={(e) => setNewUser({ ...newUser, email: e.target.value })}
             className="px-4 py-2 border-2 dark:bg-dark-15 dark:border-white/10 dark:text-white rounded-lg outline-none focus:border-brown-60"
@@ -188,6 +190,7 @@ export default function UsersPage() {
           <input
             type="password"
             placeholder="Password"
+            aria-label="Password"
             value={newUser.password}
             onChange={(e) =>
               setNewUser({ ...newUser, password: e.target.value })
@@ -196,6 +199,7 @@ export default function UsersPage() {
           />
           <div className="flex gap-2">
             <select
+              aria-label="Select User Role"
               value={newUser.role}
               onChange={(e) => setNewUser({ ...newUser, role: e.target.value })}
               className="flex-1 px-4 py-2 border dark:bg-dark-15 dark:border-white/10 dark:text-white rounded-lg outline-none focus:border-brown-60"
@@ -246,6 +250,7 @@ export default function UsersPage() {
         <input
           type="text"
           placeholder="Filter users..."
+          aria-label="Filter users"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className="w-full px-4 py-3 bg-white dark:bg-dark-15 rounded-xl border-2 border-dashed border-dark-15 dark:text-white font-mono text-sm focus:border-brown-60 outline-none transition-all"

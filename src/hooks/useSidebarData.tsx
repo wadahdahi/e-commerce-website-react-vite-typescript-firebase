@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useAuth } from "@/context/AuthContext";
-import { RootState } from "@/redux/store";
+import { RootState, AppDispatch } from "@/redux/store";
 import {
   addNewProduct,
   updateExistingProduct,
@@ -54,7 +54,7 @@ export const useSidebarLogic = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { logout } = useAuth();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   const selectedProductIds = useSelector(
     (state: RootState) => state.product.selectedProductIds,
@@ -111,6 +111,10 @@ export const useSidebarLogic = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const onImageChange = (key: keyof Product, val: string) => {
+    setFormData((prev) => ({ ...prev, [key]: val }));
+  };
+
   const handleSave = () => {
     if (!formData.ProductName || !formData.Pricevalue) {
       alert("Name and Price are required!");
@@ -122,7 +126,7 @@ export const useSidebarLogic = () => {
       id: selectedCount === 1 ? selectedProductIds[0] : "", // ID is not needed for new product creation here
       createdAt: formData.createdAt || new Date().toISOString(),
       ProductImage:
-        formData.ProductImage || "https://dummyimage.com/600x400/000/fff",
+        formData.ProductImage || "/images/placeholder/product-placeholder.png",
       Fitvalue: formData.Fitvalue || "Regular Fit",
       Status: formData.Status || "In Stock",
       image1: formData.image1 || "",
@@ -166,6 +170,7 @@ export const useSidebarLogic = () => {
     handleChange,
     handleSave,
     handleLogout,
+    onImageChange,
     pages: PAGES,
   };
 };

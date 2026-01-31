@@ -31,6 +31,7 @@ export default function DashboardSidebar({
     isProductsPage,
     handleChange,
     handleSave,
+    onImageChange,
     handleLogout,
     pages,
   } = useSidebarLogic();
@@ -102,6 +103,7 @@ export default function DashboardSidebar({
                 selectedCount={selectedCount}
                 formData={formData}
                 handleChange={handleChange}
+                onImageChange={onImageChange}
                 handleSave={handleSave}
               />
             </div>

@@ -1,3 +1,4 @@
+import { ImageUploadBox } from "../../common/ImageUploadBox/ImageUploadBox";
 import { Product } from "@/type";
 
 interface SidebarEditFormProps {
@@ -9,6 +10,7 @@ interface SidebarEditFormProps {
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
     >,
   ) => void;
+  onImageChange: (key: keyof Product, val: string) => void;
   handleSave: () => void;
 }
 
@@ -17,6 +19,7 @@ export const SidebarEditForm = ({
   selectedCount,
   formData,
   handleChange,
+  onImageChange,
   handleSave,
 }: SidebarEditFormProps) => {
   return (
@@ -43,6 +46,19 @@ export const SidebarEditForm = ({
               onChange={handleChange}
               className="p-2 border border-dark-15 border-dashed rounded bg-white dark:bg-dark-15 text-dark-10 dark:text-white text-sm focus:ring-1 focus:ring-brown-60 outline-none"
               placeholder="Product Name"
+            />
+          </div>
+
+          {/* MAIN IMAGE */}
+          <div className="flex flex-col gap-2">
+            <label className="text-sm font-mono text-gray-50 dark:text-gray-400">
+              Main Image URL
+            </label>
+            <ImageUploadBox
+              label="Product Main Image"
+              value={formData.ProductImage}
+              onChange={(val) => onImageChange("ProductImage", val)}
+              heightClass="h-24"
             />
           </div>
 
@@ -77,6 +93,33 @@ export const SidebarEditForm = ({
               <option value="Men">Men</option>
               <option value="Kids">Kids</option>
             </select>
+          </div>
+
+          {/* GALLERY IMAGES */}
+          <div className="flex flex-col gap-2">
+            <label className="text-sm font-mono text-gray-50 dark:text-gray-400">
+              Gallery Images
+            </label>
+            <div className="grid grid-cols-3 gap-2">
+              <ImageUploadBox
+                label="G1"
+                value={formData.image1}
+                onChange={(val) => onImageChange("image1", val)}
+                heightClass="h-16"
+              />
+              <ImageUploadBox
+                label="G2"
+                value={formData.image2}
+                onChange={(val) => onImageChange("image2", val)}
+                heightClass="h-16"
+              />
+              <ImageUploadBox
+                label="G3"
+                value={formData.image3}
+                onChange={(val) => onImageChange("image3", val)}
+                heightClass="h-16"
+              />
+            </div>
           </div>
 
           <div className="flex flex-col gap-2">

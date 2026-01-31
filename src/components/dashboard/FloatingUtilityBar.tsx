@@ -53,7 +53,7 @@ const FloatingUtilityBar = ({
           <button
             onClick={onSelectAll}
             title="Select All on Current Batch"
-            className="p-2 lg:p-2.5 rounded-xl bg-brown-60 text-white hover:bg-brown-80 dark:bg-white/5 dark:text-gray-400 transition-all active:scale-90 cursor-pointer"
+            className="w-9 h-9 lg:w-11 lg:h-11 flex items-center justify-center rounded-xl bg-brown-60 text-white hover:bg-brown-80 dark:bg-white/5 dark:text-gray-400 transition-all active:scale-90 cursor-pointer"
           >
             <UIcon
               icon={ICONS.ACTIONS.SELECT_ALL}
@@ -66,7 +66,7 @@ const FloatingUtilityBar = ({
             onClick={onClearSelection}
             disabled={selectedCount === 0}
             title="Clear Selection"
-            className={`p-2 lg:p-2.5 rounded-xl transition-all active:scale-90 ${
+            className={`w-9 h-9 lg:w-11 lg:h-11 flex items-center justify-center rounded-xl transition-all active:scale-90 ${
               selectedCount > 0
                 ? "bg-brown-60 text-white hover:bg-brown-80 dark:bg-white/5 cursor-pointer"
                 : "bg-brown-80/20 text-dark-12/30 dark:bg-white/5 dark:text-gray-700 cursor-not-allowed grayscale"
@@ -82,7 +82,7 @@ const FloatingUtilityBar = ({
             onClick={onExportCSV}
             disabled={selectedCount === 0}
             title="Export Selected to CSV"
-            className={`p-2 lg:p-2.5 rounded-xl transition-all active:scale-90 ${
+            className={`w-9 h-9 lg:w-11 lg:h-11 flex items-center justify-center rounded-xl transition-all active:scale-90 ${
               selectedCount > 0
                 ? "bg-brown-60 text-white hover:bg-brown-80 dark:bg-white/5 cursor-pointer"
                 : "bg-brown-80/20 text-dark-12/30 dark:bg-white/5 dark:text-gray-700 cursor-not-allowed grayscale opacity-50"
@@ -101,7 +101,7 @@ const FloatingUtilityBar = ({
             onMouseLeave={onDeleteLeave}
             disabled={selectedCount === 0}
             title="Quick Delete Selected"
-            className={`p-2 lg:p-2.5 rounded-xl transition-all active:scale-90 ${
+            className={`w-9 h-9 lg:w-11 lg:h-11 flex items-center justify-center rounded-xl transition-all active:scale-90 ${
               selectedCount > 0
                 ? "bg-brown-60 text-white hover:bg-brown-80 dark:bg-white/5 dark:text-red-500 dark:hover:text-red-400 dark:hover:bg-red-500/10 cursor-pointer"
                 : "bg-brown-80/20 text-dark-12/30 dark:bg-white/5 dark:text-gray-700 cursor-not-allowed grayscale opacity-50"
@@ -119,7 +119,7 @@ const FloatingUtilityBar = ({
           <button
             onClick={onToggleViewMode}
             title={`Switch to ${viewMode === "grid" ? "List" : "Grid"} View`}
-            className="p-2 lg:p-2.5 rounded-xl bg-brown-60 dark:bg-brown-60 text-white dark:text-white hover:bg-brown-80 dark:hover:bg-brown-70 transition-all active:scale-90 shadow-lg shadow-brown-60/10 cursor-pointer flex items-center justify-center"
+            className="w-9 h-9 lg:w-11 lg:h-11 flex items-center justify-center rounded-xl bg-brown-60 dark:bg-brown-60 text-white dark:text-white hover:bg-brown-80 dark:hover:bg-brown-70 transition-all active:scale-90 shadow-lg shadow-brown-60/10 cursor-pointer"
           >
             <UIcon
               icon={

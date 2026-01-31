@@ -50,6 +50,9 @@ export default function CRUDBar({ onMobileMenuToggle }: CRUDBarProps) {
     // Add createdAt timestamp
     const productData = {
       ...newProduct,
+      ProductImage:
+        newProduct.ProductImage ||
+        "/images/placeholder/product-placeholder.png",
       createdAt: new Date().toISOString(),
     };
 
@@ -172,7 +175,7 @@ export default function CRUDBar({ onMobileMenuToggle }: CRUDBarProps) {
       </div>
 
       {showAddForm && (
-        <div className="fixed top-16 left-0 lg:left-64 right-0 z-[10003] animate-in slide-in-from-top duration-300">
+        <div className="fixed top-16 left-0 lg:left-64 right-0 z-[10003] max-h-[calc(100vh-64px)] overflow-y-auto animate-in slide-in-from-top duration-300">
           <AddProductForm
             onClose={() => setShowAddForm(false)}
             onSave={handleSaveNewProduct}
