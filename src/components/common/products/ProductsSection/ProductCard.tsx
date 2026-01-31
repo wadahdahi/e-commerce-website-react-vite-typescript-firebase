@@ -13,6 +13,7 @@ import { useAuth } from "@/context/AuthContext";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleProductSelection } from "@/redux/slices/productSlice";
 import { RootState } from "@/redux/store";
+import { IMAGES } from "@/constants/images";
 
 export default function ProductCard({
   product,
@@ -107,10 +108,13 @@ export default function ProductCard({
       >
         <div className="relative">
           <img
-            src={product.ProductImage}
+            src={product.ProductImage || IMAGES.PLACEHOLDER.PRODUCT}
             alt={product.ProductName}
             className="w-full rounded-t-[50px] h-56 xl:h-72 2xl:h-96 object-cover"
             loading="lazy"
+            onError={(e) => {
+              (e.target as HTMLImageElement).src = IMAGES.PLACEHOLDER.PRODUCT;
+            }}
           />
           {/* Overlay for delete hover */}
           {isDeleteHovered && isSelected && (

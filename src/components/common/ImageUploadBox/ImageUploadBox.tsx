@@ -6,6 +6,7 @@ interface ImageUploadBoxProps {
   value: string | undefined;
   onChange: (val: string) => void;
   heightClass?: string;
+  placeholder?: string;
 }
 
 export const ImageUploadBox = ({
@@ -13,6 +14,7 @@ export const ImageUploadBox = ({
   value,
   onChange,
   heightClass = "h-32",
+  placeholder,
 }: ImageUploadBoxProps) => {
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -80,12 +82,16 @@ export const ImageUploadBox = ({
           aria-label={label}
         />
 
-        {value ? (
+        {value || placeholder ? (
           <div className="group w-full h-full relative">
             <img
-              src={value}
+              src={value || placeholder}
               alt="Preview"
               className="w-full h-full object-cover"
+              onError={(e) => {
+                if (placeholder)
+                  (e.target as HTMLImageElement).src = placeholder;
+              }}
             />
             <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center text-white transition-opacity">
               <FaCloudArrowUp className="text-2xl mb-1" />

@@ -1,5 +1,6 @@
 import { ImageUploadBox } from "../../common/ImageUploadBox/ImageUploadBox";
 import { Product } from "@/type";
+import { IMAGES } from "@/constants/images";
 
 interface SidebarEditFormProps {
   isMuted: boolean;
@@ -59,6 +60,7 @@ export const SidebarEditForm = ({
               value={formData.ProductImage}
               onChange={(val) => onImageChange("ProductImage", val)}
               heightClass="h-24"
+              placeholder={IMAGES.PLACEHOLDER.PRODUCT}
             />
           </div>
 
@@ -106,18 +108,21 @@ export const SidebarEditForm = ({
                 value={formData.image1}
                 onChange={(val) => onImageChange("image1", val)}
                 heightClass="h-16"
+                placeholder={IMAGES.PLACEHOLDER.PRODUCT}
               />
               <ImageUploadBox
                 label="G2"
                 value={formData.image2}
                 onChange={(val) => onImageChange("image2", val)}
                 heightClass="h-16"
+                placeholder={IMAGES.PLACEHOLDER.PRODUCT}
               />
               <ImageUploadBox
                 label="G3"
                 value={formData.image3}
                 onChange={(val) => onImageChange("image3", val)}
                 heightClass="h-16"
+                placeholder={IMAGES.PLACEHOLDER.PRODUCT}
               />
             </div>
           </div>

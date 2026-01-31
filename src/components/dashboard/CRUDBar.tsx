@@ -9,6 +9,7 @@ import {
   addNewProduct,
 } from "@/redux/slices/productSlice";
 import { ICONS, UIcon } from "@/constants/icons";
+import { IMAGES } from "@/constants/images";
 import ViewListGridToggleButton from "../common/ViewListGridToggleButton/ViewListGridToggleButton";
 import AddProductForm from "./AddProductForm";
 import { Product } from "@/type";
@@ -50,9 +51,7 @@ export default function CRUDBar({ onMobileMenuToggle }: CRUDBarProps) {
     // Add createdAt timestamp
     const productData = {
       ...newProduct,
-      ProductImage:
-        newProduct.ProductImage ||
-        "/images/placeholder/product-placeholder.png",
+      ProductImage: newProduct.ProductImage || IMAGES.PLACEHOLDER.PRODUCT,
       createdAt: new Date().toISOString(),
     };
 

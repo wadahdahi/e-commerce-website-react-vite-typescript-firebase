@@ -15,6 +15,7 @@ import {
 } from "@/redux/slices/productSlice";
 import { ProductMiniPreview } from "../../../dashboard/ProductMiniPreview/ProductMiniPreview";
 import { ICONS, UIcon } from "@/constants/icons";
+import { IMAGES } from "@/constants/images";
 
 interface ProductsSectionProps {
   image?: string;
@@ -339,9 +340,13 @@ export default function ProductsSection({
 
                 <div className="relative mx-2 h-8 w-8 sm:h-10 sm:w-10 shrink-0">
                   <img
-                    src={product.ProductImage}
+                    src={product.ProductImage || IMAGES.PLACEHOLDER.PRODUCT}
                     alt={product.ProductName}
                     className="h-full w-full object-cover rounded shadow-sm"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src =
+                        IMAGES.PLACEHOLDER.PRODUCT;
+                    }}
                   />
                   {/* Overlay for delete hover */}
                   {isDeleteHovered && isSelected && (

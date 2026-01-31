@@ -9,6 +9,7 @@ import {
 } from "@/redux/slices/productSlice";
 import { Product } from "@/type";
 import { ICONS, UIcon } from "@/constants/icons";
+import { IMAGES } from "@/constants/images";
 
 // PAGES PATH CONSTANT
 export const PAGES = [
@@ -125,8 +126,7 @@ export const useSidebarLogic = () => {
       ...formData,
       id: selectedCount === 1 ? selectedProductIds[0] : "", // ID is not needed for new product creation here
       createdAt: formData.createdAt || new Date().toISOString(),
-      ProductImage:
-        formData.ProductImage || "/images/placeholder/product-placeholder.png",
+      ProductImage: formData.ProductImage || IMAGES.PLACEHOLDER.PRODUCT,
       Fitvalue: formData.Fitvalue || "Regular Fit",
       Status: formData.Status || "In Stock",
       image1: formData.image1 || "",
